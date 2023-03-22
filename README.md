@@ -1,4 +1,3 @@
-# mosaic-api-examples
 Mosaic API Sample Code
 This repository contains sample code to make requests to the Mosaic API. The code is written in TypeScript and uses the fetch method to make requests.
 
