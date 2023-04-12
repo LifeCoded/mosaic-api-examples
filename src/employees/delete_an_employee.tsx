@@ -6,7 +6,7 @@ const api = axios.create({
 
 async function archiveEmployee(teamId: number, employeeId: number, isEmployeeId: boolean = true): Promise<void> {
   try {
-    const queryString = isEmployeeId ? `?account_id=${employeeId}` : `?team_membership_id=${employeeId}`;
+    const queryString = isEmployeeId ? `?employee_id=${employeeId}` : `?team_membership_id=${employeeId}`;
     const response = await api.delete(`/api/${teamId}/employee${queryString}`);
     console.log(response.status;
   } catch (error) {
@@ -14,7 +14,7 @@ async function archiveEmployee(teamId: number, employeeId: number, isEmployeeId:
   }
 }
 
-// Example usage for deleting an employee by their account ID
+// Example usage for deleting an employee by their employee ID
 archiveEmployee(123456, 123);
 
 // Example usage for deleting an employee by their team membership ID

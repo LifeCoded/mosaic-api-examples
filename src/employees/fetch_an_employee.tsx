@@ -18,7 +18,7 @@ const api = axios.create({
 
 async function fetchEmployee(teamId: number, employeeId: number | null = null, isEmployeeId: boolean = true): Promise<void> {
   try {
-    const queryString = employeeId ? isEmployeeId ? `?account_id=${employeeId}` : `?team_membership_id=${employeeId}` : "";
+    const queryString = employeeId ? isEmployeeId ? `?employee_id=${employeeId}` : `?team_membership_id=${employeeId}` : "";
     const response = await api.get(`/api/${teamId}/employee${queryString}`);
     const employee: EmployeeData = response.data.employee;
     console.log(employee);
@@ -27,7 +27,7 @@ async function fetchEmployee(teamId: number, employeeId: number | null = null, i
   }
 }
 
-// Example usage for fetching an employee by their account ID
+// Example usage for fetching an employee by their employee ID
 fetchEmployee(123456, 123);
 
 // Example usage for fetching an employee by their team membership ID

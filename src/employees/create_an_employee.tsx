@@ -16,7 +16,7 @@ const api = axios.create({
 
 async function createEmployee(teamId: number, postData: EmployeeData): Promise<void> {
   try {
-    const response = await api.post(`/api/${teamId}/employee`, employeeData);
+    const response = await api.post(`/api/${teamId}/employee`, postData);
     console.log(response.status);
   } catch (error) {
     console.error(error);

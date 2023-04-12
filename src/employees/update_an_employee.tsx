@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 interface EmployeeUpdateData {
-    account_id?: number;
+    employee_id?: number;
     team_membership_id?: number;
     email?: string;
     first_name?: string;
@@ -16,7 +16,7 @@ const api = axios.create({
 
 async function updateEmployee(teamId: number, updateData: EmployeeUpdateData, employeeId: number, isEmployeeId: boolean = true): Promise<void> {
   try {
-    if (isEmployeeId) updateData.account_id = employeeId;
+    if (isEmployeeId) updateData.employee_id = employeeId;
     else updateData.team_membership_id = employeeId;
     const response = await api.put(`/api/${teamId}/employee`, employeeData);
     console.log(response.status);
@@ -32,7 +32,7 @@ const employeeData: EmployeeUpdateData = {
   last_name: "Employee",
 };
 
-// Example usage of updating an employee by their account ID
+// Example usage of updating an employee by their employee ID
 updateEmployee(123456, employeeData, 123);
 
 // Example usage of updating an employee by their team membership ID
