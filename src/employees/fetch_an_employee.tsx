@@ -16,18 +16,22 @@ const api = axios.create({
     baseURL: 'https://example.com/api',
 });
 
-async function fetchEmployee(teamId: number, employeeId: number, isEmployeeId: boolean = true): Promise<void> {
+async function fetchEmployee(teamId: number, employeeId: number | null = null, isEmployeeId: boolean = true): Promise<void> {
   try {
-    const queryString = isEmployeeId ? `?account_id=${employeeId}` : `?team_membership_id=${employeeId}`;
+    const queryString = employeeId ? isEmployeeId ? `?account_id=${employeeId}` : `?team_membership_id=${employeeId}` : "";
     const response = await api.get(`/api/${teamId}/employee${queryString}`);
     const employee: EmployeeData = response.data.employee;
+    console.log(employee);
   } catch (error) {
     console.error(error);
   }
 }
 
-// Example usage for fetching all employees
+// Example usage for fetching an employee by their account ID
 fetchEmployee(123456, 123);
 
-// Example usage for fetching all employees including the archived ones
+// Example usage for fetching an employee by their team membership ID
 fetchEmployee(123456, 456, false);
+
+// Not recommended usage but can also fetch all employees by not passing the employeeId
+fetchEmployee(123456)
