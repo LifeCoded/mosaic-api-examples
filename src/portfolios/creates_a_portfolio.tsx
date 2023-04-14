@@ -6,7 +6,7 @@ interface PortfolioData {
   is_personal?: boolean;
 }
 
-async function createEmployee(teamId: number, postData: PortfolioData): Promise<void> {
+async function createPortfolio(teamId: number, postData: PortfolioData): Promise<void> {
   try {
     const response = await api.post(`/api/${teamId}/portfolio`, postData);
     console.log(response.status);
@@ -22,4 +22,4 @@ const portfolioData: PortfolioData = {
   is_personal: false
 };
 
-createEmployee(12345, portfolioData);
+createPortfolio(12345, portfolioData);

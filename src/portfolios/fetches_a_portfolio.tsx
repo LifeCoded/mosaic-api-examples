@@ -5,7 +5,7 @@ async function fetchPortfolio(teamId: number, portfolioId: number): Promise<void
   try {
     // const queryString = `?portfolio_id=${portfolioId}`; // non qs option
     const queryString = qs.stringify({ portfolio_id: portfolioId }, { addQueryPrefix: true }); // qs option
-    const response = await api.get(`/api/${teamId}/employee${queryString}`);
+    const response = await api.get(`/api/${teamId}/portfolio${queryString}`);
     const portfolio = response.data;
     console.log(portfolio);
   } catch (error) {

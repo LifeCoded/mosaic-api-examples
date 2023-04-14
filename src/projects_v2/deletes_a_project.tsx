@@ -15,7 +15,7 @@ const archiveOption = {
 
 async function deleteProject(teamId: number, projectId: number, deleteOption: DeleteOption = {}): Promise<void> {
   try {
-    const response = await api.delete(`/api/${teamId}/employee${projectId}`, { data: deleteOption });
+    const response = await api.delete(`/api/${teamId}/project${projectId}`, { data: deleteOption });
     console.log(response.status);
   } catch (error) {
     console.error(error);
@@ -30,4 +30,3 @@ deleteProject(12345, 67890, destroyOption);
 
 // Example usage for force archiving a project by its project ID
 deleteProject(12345, 67890, archiveOption);
-

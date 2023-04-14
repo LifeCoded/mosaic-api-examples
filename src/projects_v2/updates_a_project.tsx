@@ -1,6 +1,6 @@
 import api from '../api';
 
-interface PortfolioUpdateData {
+interface ProjectUpdateData {
     portfolio_id?: number;
     project_number?: number;
     title?: string;
@@ -13,9 +13,9 @@ interface PortfolioUpdateData {
     phase_orders?: string[];
 }
 
-async function updateProject(teamId: number, projectId: number, updateData: PortfolioUpdateData): Promise<void> {
+async function updateProject(teamId: number, projectId: number, updateData: ProjectUpdateData): Promise<void> {
   try {
-    const response = await api.put(`/api/${teamId}/portfolio/${projectId}`, updateData);
+    const response = await api.put(`/api/${teamId}/project/${projectId}`, updateData);
     console.log(response.status);
   } catch (error) {
     console.error(error);
@@ -23,7 +23,7 @@ async function updateProject(teamId: number, projectId: number, updateData: Port
 }
 
 // Example usage of updating a project
-const employeeData: PortfolioUpdateData = {
+const projectData: ProjectUpdateData = {
   portfolio_id: 123456,
   project_number: 1000,
   title: "Updated Example Project",
@@ -36,4 +36,4 @@ const employeeData: PortfolioUpdateData = {
   phase_orders: ["12345", "67890"],
 };
 
-updateProject(12345, 67890, employeeData);
+updateProject(12345, 67890, projectData);
