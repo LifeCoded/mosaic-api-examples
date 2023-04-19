@@ -3,8 +3,7 @@ import api from '../api';
 
 async function fetchEmployee(teamId: number, employeeId: number): Promise<void> {
   try {
-    // const queryString = `?employee_id=${employeeId}`; // non qs option
-    const queryString = qs.stringify({ employee_id: employeeId }, { addQueryPrefix: true }); // qs option
+    const queryString = qs.stringify({ employee_id: employeeId }, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/employee${queryString}`);
     const employee = response.data.employee;
     console.log(employee);
