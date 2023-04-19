@@ -1,10 +1,10 @@
-🌟 Mosaic API Sample Code 🌟
+# 🌟 Mosaic API Sample Code 🌟
 
-📚 Description:
+## 📚 Description:
 
 This repository contains professional, easy-to-understand sample code to make requests to the Mosaic API. The code is written in TypeScript and uses the fetch method for making requests.
 
-🚀 Getting Started:
+## 🚀 Getting Started:
 
 To get started, you need to have the following:
 
@@ -15,7 +15,7 @@ Once you have these, you can clone this repository and install the dependencies 
 
 npm install
 
-🔧 Running the Sample Code:
+## 🔧 Running the Sample Code:
 
 To run the sample code, you need to set the following environment variables:
 
@@ -28,20 +28,20 @@ npm start
 
 This will run the sample code, which makes requests to the Mosaic API and logs the response to the console.
 
-💡 Using the Sample Code:
+## 💡 Using the Sample Code:
 
 The sample code contains examples of making requests to the following endpoints:
 
 - /api/index: Fetches all projects under a portfolio
-- /api/update/:project_id: Updates a project
-- /api/destroy/:id: Deletes a project (Archives if there is time spent on the project)
+- /api/update/project_id: Updates a project
+- /api/destroy/id: Deletes a project (Archives if there is time spent on the project)
 
 You can use the sample code as a starting point for making requests to other endpoints in the Mosaic API. Simply update the request URL and parameters to match the endpoint you want to call.
 
-🤝 Contributing:
+## 🤝 Contributing:
 
 If you find any issues with the sample code or want to add additional examples, feel free to open a pull request.
 
-📄 License:
+### 📄 License:
 
 This code is licensed under the MIT License. See the LICENSE file for details.
