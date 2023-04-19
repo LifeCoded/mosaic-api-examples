@@ -3,8 +3,7 @@ import api from '../api';
 
 async function fetchAllEmployees(teamId: number, includeArchived: boolean = false): Promise<void> {
   try {
-    // const queryString = includeArchived ? "?include_discarded=true" : ''; // non qs option
-    const queryString = includeArchived ? qs.stringify({ include_discarded: true }, { addQueryPrefix: true }) : ''; // qs option
+    const queryString = includeArchived ? qs.stringify({ include_discarded: true }, { addQueryPrefix: true }) : '';
     const response = await api.get(`/api/${teamId}/employee/index${queryString}`);
     const employees = response.data.employee;
     console.log(employees)

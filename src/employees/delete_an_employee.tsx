@@ -3,8 +3,7 @@ import api from '../api';
 
 async function archiveEmployee(teamId: number, employeeId: number): Promise<void> {
   try {
-    // const queryString = `?employee_id=${employeeId}`; // non qs option
-    const queryString = qs.stringify({ employee_id: employeeId }, { addQueryPrefix: true }); // qs option
+    const queryString = qs.stringify({ employee_id: employeeId }, { addQueryPrefix: true });
     const response = await api.delete(`/api/${teamId}/employee${queryString}`);
     console.log(response.status);
   } catch (error) {
