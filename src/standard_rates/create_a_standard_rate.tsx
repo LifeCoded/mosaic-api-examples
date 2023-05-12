@@ -7,7 +7,7 @@ interface StandardRateParams {
   description?: string;
 }
 
-async function createEmployee(
+async function createStandardRate(
   teamId: number,
   postData: StandardRateParams
 ): Promise<void> {
@@ -27,4 +27,4 @@ const StandardRateParams: StandardRateParams = {
   multiplier_low: 1,
 };
 
-createEmployee(12345, StandardRateParams);
+createStandardRate(12345, StandardRateParams);

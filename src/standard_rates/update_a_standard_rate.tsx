@@ -8,7 +8,7 @@ interface StandardRateUpdateParams {
   merge_rate_id: number;
 }
 
-async function updateCostRate(
+async function updateStandardRate(
   teamId: number,
   rateId: number,
   updateData: StandardRateUpdateParams
@@ -29,4 +29,4 @@ const StandardRateUpdateParams: StandardRateUpdateParams = {
   rate: 300,
   merge_rate_id: 100035,
 };
-updateCostRate(12345, 67890, StandardRateUpdateParams);
+updateStandardRate(12345, 67890, StandardRateUpdateParams);
