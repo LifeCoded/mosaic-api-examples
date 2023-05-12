@@ -19,7 +19,7 @@ async function createStandardRate(
   }
 }
 
-// Example usage of creating a standard rate named Manager Rate
+// Example usage of creating a standard rate named "Manager Rate"
 const StandardRateParams: StandardRateParams = {
   rate: 400,
   description: "Manager Rate",

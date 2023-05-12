@@ -9,5 +9,5 @@ async function deleteStandardRate(teamId: number, rateId: number): Promise<void>
   }
 }
 
-// Example usage for deleting a standard rate
+// Example usage for deleting a standard rate with ID 67890
 deleteStandardRate(12345, 67890);

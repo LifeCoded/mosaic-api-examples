@@ -1,11 +1,11 @@
 import api from "../api";
 
 interface StandardRateUpdateParams {
-  rate: number;
+  rate?: number; // required if description is not provided
   multiplier_low?: number;
   multiplier_high?: number;
-  description: string;
-  merge_rate_id: number;
+  description?: string; //required if rate is not provided
+  merge_rate_id?: number;
 }
 
 async function updateStandardRate(
@@ -21,12 +21,11 @@ async function updateStandardRate(
   }
 }
 
-// Example usage of updating a standard rate named Sales
+// Example usage of updating a standard rate named Intern
 const StandardRateUpdateParams: StandardRateUpdateParams = {
   description: "Intern",
   multiplier_high: 4,
   multiplier_low: 1,
   rate: 300,
-  merge_rate_id: 100035,
 };
 updateStandardRate(12345, 67890, StandardRateUpdateParams);
