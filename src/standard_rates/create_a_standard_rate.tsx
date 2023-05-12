@@ -1,7 +1,6 @@
 import api from "../api";
 
 interface StandardRateParams {
-  team_id: number;
   rate: number;
   multiplier_low?: number;
   multiplier_high?: number;
@@ -22,7 +21,6 @@ async function createEmployee(
 
 // Example usage of creating a standard rate named Manager Rate
 const StandardRateParams: StandardRateParams = {
-  team_id: 23786,
   rate: 400,
   description: "Manager Rate",
   multiplier_high: 4,

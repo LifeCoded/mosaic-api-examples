@@ -23,11 +23,10 @@ async function updateCostRate(
 
 // Example usage of updating a standard rate named Sales
 const StandardRateUpdateParams: StandardRateUpdateParams = {
-  description: "Sales",
-  rate: 500,
-  multiplier_high: 3,
-  multiplier_low: 0.5,
+  description: "Intern",
+  multiplier_high: 4,
+  multiplier_low: 1,
+  rate: 300,
   merge_rate_id: 100035,
 };
-
 updateCostRate(12345, 67890, StandardRateUpdateParams);
