@@ -19,8 +19,8 @@ async function updateMemberProjectRole(teamId: number, memberProjectRoleId: numb
 // Example usage of updating a member project role with an existing role id
 const memberProjectRoleData: MemberProjectRoleUpdateData = {
   role_id: 456789,
-  start_date: "01/01/2023",
-  end_date: "01/31/2023"
+  start_date: "2023-01-01",
+  end_date: "2023-01-31"
 };
 
 updateMemberProjectRole(12345, 67890, memberProjectRoleData);

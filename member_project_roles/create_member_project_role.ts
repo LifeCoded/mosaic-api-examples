@@ -25,8 +25,8 @@ const memberProjectRoleData: MemberProjectRoleData = {
     project_id: 23456,
     role_id: 456789,
     phase_id: 123456,
-    start_date: "01/01/2023",
-    end_date: "01/31/2023"
+    start_date: "2023-01-01",
+    end_date: "2023-01-31"
 };
 
 createMemberProjectRole(12345, memberProjectRoleData);
