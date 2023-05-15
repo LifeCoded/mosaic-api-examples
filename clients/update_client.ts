@@ -1,7 +1,7 @@
 import api from '../api';
 
 interface ClientUpdateData {
-    title?: string;
+    client_name?: string;
     description?: string;
 }
 
@@ -16,7 +16,7 @@ async function updateClient(teamId: number, clientId: number, updateData: Client
 
 // Example usage of updating a cost rate
 const clientData: ClientUpdateData = {
-    title: "Updated Title",
+    client_name: "Updated Title",
     description: "Updated Description"
 };
 

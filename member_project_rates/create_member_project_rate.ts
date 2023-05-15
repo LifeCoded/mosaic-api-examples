@@ -26,8 +26,8 @@ const memberProjectRateData1: MemberProjectRateData = {
     project_id: 23456,
     phase_id: 123456,
     rate_id: 456789,
-    start_date: "01/01/2023",
-    end_date: "01/31/2023"
+    start_date: "2023-01-01",
+    end_date: "2023-01-31"
 };
 
 createMemberProjectRate(12345, memberProjectRateData1);
@@ -39,8 +39,8 @@ const memberProjectRateData2: MemberProjectRateData = {
     phase_id: 123456,
     is_cost_rate: true,
     rate_amount: 35,
-    start_date: "01/01/2023",
-    end_date: "01/31/2023"
+    start_date: "2023-01-01",
+    end_date: "2023-01-31"
 };
 
 createMemberProjectRate(12345, memberProjectRateData2);
