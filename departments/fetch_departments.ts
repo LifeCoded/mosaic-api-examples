@@ -1,6 +1,6 @@
 import api from '../api';
 
-async function fetchCheckIns(teamId: number): Promise<void> {
+async function fetchDepartments(teamId: number): Promise<void> {
   try {
     const response = await api.get(`/api/${teamId}/department`);
     const departments = response.data.departments;
@@ -13,4 +13,4 @@ async function fetchCheckIns(teamId: number): Promise<void> {
 }
 
 // Example usage for fetching all departments under a team
-fetchCheckIns(12345);
+fetchDepartments(12345);
