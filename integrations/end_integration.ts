@@ -24,7 +24,7 @@ interface IntegrationData {
     intergation_type: IntegrationType;
 }
 
-async function endntegration(teamId: number, postData: IntegrationData): Promise<void> {
+async function endIntegration(teamId: number, postData: IntegrationData): Promise<void> {
     try {
         const response = await api.post(`/api/${teamId}/integrations/deprovision`, postData);
         console.log(response.status);
@@ -38,4 +38,4 @@ const integrationData: IntegrationData = {
     "intergation_type": "csv-agent"
 }
 
-endntegration(12345, integrationData);
+endIntegration(12345, integrationData);
