@@ -2,13 +2,14 @@ import api from '../api';
 
 interface BudgetEstimateData {
     phase_id: number;
-    project_id?: number;
-    work_category_id?: number;
+    project_id: number;
+    standard_work_category_id?: number;
     scope_id?: number;
     member_id?: number;
     estimated_hours?: number;
     estimated_amount?: number;
     estimated_percentage?: number;
+    api_request_metadata?: {};
 }
 
 async function createBudgetEstimate(teamId: number, postData: BudgetEstimateData): Promise<void> {
@@ -24,9 +25,10 @@ async function createBudgetEstimate(teamId: number, postData: BudgetEstimateData
 const budgetEstimateData1: BudgetEstimateData = {
     phase_id: 456789,
     project_id: 123456,
-    work_category_id: 345678,
+    standard_work_category_id: 345678,
     member_id: 23456,
-    estimated_hours: 200
+    estimated_hours: 200,
+    api_request_metadata: {}
 };
 createBudgetEstimate(12345, budgetEstimateData1);
 
@@ -34,18 +36,20 @@ createBudgetEstimate(12345, budgetEstimateData1);
 const budgetEstimateData2: BudgetEstimateData = {
     phase_id: 456789,
     project_id: 123456,
-    work_category_id: 345678,
+    standard_work_category_id: 345678,
     member_id: 34567,
-    estimated_amount: 2500
+    estimated_amount: 2500,
+    api_request_metadata: {}
 };
 createBudgetEstimate(12345, budgetEstimateData2);
 
-// Example usage of creating a budget estimate using estimated_amount
+// Example usage of creating a budget estimate using estimated_percentage
 const budgetEstimateData3: BudgetEstimateData = {
     phase_id: 456789,
     project_id: 123456,
-    work_category_id: 345678,
+    standard_work_category_id: 345678,
     member_id: 45678,
-    estimated_percentage: 75
+    estimated_percentage: 75,
+    api_request_metadata: {}
 };
 createBudgetEstimate(12345, budgetEstimateData3);

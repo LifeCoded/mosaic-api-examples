@@ -2,12 +2,16 @@ import api from '../api';
 
 async function deleteBudgetEstimate(teamId: number, budgetEstimateId: number): Promise<void> {
   try {
-    const response = await api.delete(`/api/${teamId}/budget_estimate/${budgetEstimateId}`);
+    const response = await api.delete(`/api/${teamId}/budget_estimate/${budgetEstimateId}`, {
+      data: {
+        api_request_metadata: {},
+      },
+    });
     console.log(response.status);
   } catch (error) {
     console.error(error);
   }
 }
 
-// Example usage for deleting an activity phase by its ID
+// Example usage for deleting a budget estimate by its ID
 deleteBudgetEstimate(12345, 67890);
