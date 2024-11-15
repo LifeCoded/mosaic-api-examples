@@ -7,6 +7,7 @@ interface CalendarEventUpdateData {
   project_id?: number;
   phase_id?: number;
   member_ids?: number[];
+  api_request_metadata?: {};
 }
 
 async function updateCalendarEvent(teamId: number, calendarEventId: number, updateData: CalendarEventUpdateData): Promise<void> {
@@ -25,7 +26,8 @@ const calendarEventData: CalendarEventUpdateData = {
   end_datetime: "2023-05-31",
   project_id: 56789,
   phase_id: 345678,
-  member_ids: [12345, 23456]
+  member_ids: [12345, 23456],
+  api_request_metadata: {}
 };
 
 updateCalendarEvent(12345, 67890, calendarEventData);

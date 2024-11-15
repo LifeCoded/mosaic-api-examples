@@ -2,18 +2,18 @@ import * as qs from 'qs';
 import api from '../api';
 
 interface CalendarEventQueryParams {
-    title?: string;
-    start_datetime?: string;
-    end_datetime?: string;
-    project_ids?: number[];
-    phase_ids?: number[];
-    member_ids?: number[];
+  title?: string;
+  start_datetime?: string;
+  end_datetime?: string;
+  project_ids?: number[];
+  phase_ids?: number[];
+  member_ids?: number[];
 }
 
 async function fetchCalendarEvents(teamId: number, queryParams: CalendarEventQueryParams): Promise<void> {
   try {
-    const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
-    const response = await api.get(`/api/${teamId}/calendar_event${queryStinrg}`);
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+    const response = await api.get(`/api/${teamId}/calendar_event${queryString}`);
     const calendarEvents = response.data.calendar_events;
     const totalCount = calendarEvents?.length ?? 0;
     console.log(calendarEvents);

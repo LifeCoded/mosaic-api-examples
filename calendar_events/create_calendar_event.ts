@@ -7,6 +7,8 @@ interface CalendarEventData {
     project_id?: number;
     phase_id?: number;
     member_ids?: number[];
+    api_request_metadata?: {}
+    details?: {}
 }
 
 async function createCalendarEvent(teamId: number, postData: CalendarEventData): Promise<void> {
