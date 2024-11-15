@@ -1,8 +1,21 @@
-import api from '../api';
+import api from "../api";
 
-async function deleteBillRate(teamId: number, billRateId: number): Promise<void> {
+async function deleteBillRate(
+  teamId: number,
+  billRateId: number
+): Promise<void> {
   try {
-    const response = await api.delete(`/api/${teamId}/bill_rate/${billRateId}`);
+    const response = await api.delete(
+      `/api/${teamId}/bill_rate/${billRateId}`,
+      {
+        data: {
+          api_request_metadata: {
+            team_id: teamId,
+            bill_rate_id: billRateId,
+          },
+        },
+      }
+    );
     console.log(response.status);
   } catch (error) {
     console.error(error);
