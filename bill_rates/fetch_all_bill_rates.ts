@@ -18,7 +18,7 @@ async function fetchAllBillRates(
         },
       },
     });
-    const billRates = response.data;
+    const billRates: any[] = Array.isArray(response.data) ? response.data : [];
     const totalCount = billRates && billRates.length ? billRates.length : 0;
     console.log(billRates);
     console.log(totalCount);

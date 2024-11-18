@@ -8,7 +8,7 @@ async function deleteBillRate(
     const response = await api.delete(
       `/api/${teamId}/bill_rate/${billRateId}`,
       {
-        data: {
+        params: {
           api_request_metadata: {
             team_id: teamId,
             bill_rate_id: billRateId,
