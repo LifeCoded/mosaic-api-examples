@@ -19,8 +19,8 @@ async function updateHoliday(teamId: number, holidayId: number, updateData: Holi
 
 // Example usage of updating a holiday
 const holidayData: HolidayUpdateData = {
-    start_date: "11/12/2023",
-    end_date: "11/12/2023",
+    start_date: "2023-11-11",
+    end_date: "2023-11-11",
     title: "Updated Holiday Title",
     daily_hours: 8,
     all_day: false
