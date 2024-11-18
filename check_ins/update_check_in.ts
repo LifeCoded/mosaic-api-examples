@@ -1,7 +1,7 @@
 import api from '../api';
 
 interface CheckInUpdateData {
-  title?: string;
+  description?: string;
   estimated_hours?: number;
 }
 
@@ -16,7 +16,7 @@ async function updateCheckIn(teamId: number, checkInId: number, updateData: Chec
 
 // Example usage of updating a check-in using a check-in ID
 const checkInData: CheckInUpdateData = {
-  title: "Updated Check-In Title",
+  description: 'This is an updated description.',
   estimated_hours: 4
 };
 

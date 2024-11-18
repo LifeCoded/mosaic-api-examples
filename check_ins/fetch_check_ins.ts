@@ -1,4 +1,4 @@
-import * as qs from 'qs';
+import qs from 'qs';
 import api from '../api';
 
 interface CheckInQueryParams {
@@ -10,7 +10,7 @@ async function fetchCheckIns(teamId: number, queryParams: CheckInQueryParams): P
   try {
     const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/check_in${queryStinrg}`);
-    const checkIns = response.data.check_ins;
+    const checkIns = (response.data as { check_ins: any[] }).check_ins;
     const totalCount = checkIns?.length ?? 0;
     console.log(checkIns);
     console.log(totalCount);
