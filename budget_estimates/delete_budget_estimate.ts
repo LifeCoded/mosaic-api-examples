@@ -2,11 +2,7 @@ import api from '../api';
 
 async function deleteBudgetEstimate(teamId: number, budgetEstimateId: number): Promise<void> {
   try {
-    const response = await api.delete(`/api/${teamId}/budget_estimate/${budgetEstimateId}`, {
-      data: {
-        api_request_metadata: {},
-      },
-    });
+    const response = await api.delete(`/api/${teamId}/budget_estimate/${budgetEstimateId}`);
     console.log(response.status);
   } catch (error) {
     console.error(error);
