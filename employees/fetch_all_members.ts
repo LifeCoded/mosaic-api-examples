@@ -1,11 +1,9 @@
-import * as qs from 'qs';
 import api from '../api';
 
-async function fetchAllMembers(teamId: number, includeArchived: boolean = false): Promise<void> {
+async function fetchAllMembers(teamId: number): Promise<void> {
   try {
-    const queryString = includeArchived ? qs.stringify({ include_discarded: true }, { addQueryPrefix: true }) : '';
-    const response = await api.get(`/api/${teamId}/member/index${queryString}`);
-    const members = response.data.member;
+    const response = await api.get(`/api/${teamId}/employee/index`);
+    const members = (response.data as { member: any }).member;
     console.log(members)
   } catch (error) {
     console.error(error);
@@ -16,4 +14,4 @@ async function fetchAllMembers(teamId: number, includeArchived: boolean = false)
 fetchAllMembers(12345);
 
 // Example usage for fetching all members including the archived ones
-fetchAllMembers(12345, true);
+fetchAllMembers(12345);

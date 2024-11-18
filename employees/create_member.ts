@@ -8,7 +8,7 @@ interface MemberData {
 
 async function createMember(teamId: number, postData: MemberData): Promise<void> {
   try {
-    const response = await api.post(`/api/${teamId}/member`, postData);
+    const response = await api.post(`/api/${teamId}/employee`, postData);
     console.log(response.status);
   } catch (error) {
     console.error(error);
