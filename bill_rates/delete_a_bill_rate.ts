@@ -5,17 +5,7 @@ async function deleteBillRate(
   billRateId: number
 ): Promise<void> {
   try {
-    const response = await api.delete(
-      `/api/${teamId}/bill_rate/${billRateId}`,
-      {
-        params: {
-          api_request_metadata: {
-            team_id: teamId,
-            bill_rate_id: billRateId,
-          },
-        },
-      }
-    );
+    const response = await api.delete(`/api/${teamId}/bill_rate/${billRateId}`);
     console.log(response.status);
   } catch (error) {
     console.error(error);
