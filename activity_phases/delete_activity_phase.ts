@@ -18,7 +18,7 @@ async function deletActivityPhase(
   try {
     const response = await api.delete(
       `/api/${teamId}/activity_phase/${activityPhaseId}`,
-      { data: deleteOption }
+      { params: deleteOption }
     );
     console.log(response.status);
   } catch (error) {

@@ -1,4 +1,4 @@
-import * as qs from "qs";
+import qs from "qs";
 import api from "../api";
 
 interface ActivityPhaseQueryParams {
@@ -23,7 +23,8 @@ async function fetchAllActivityPhases(
     const response = await api.get(
       `/api/${teamId}/activity_phase${queryString}`
     );
-    const activityPhases = response.data.activity_phase;
+    const activityPhases = (response.data as { activity_phase: any[] })
+      .activity_phase;
     const totalCount =
       activityPhases && activityPhases.length ? activityPhases.length : 0;
     console.log(activityPhases);
