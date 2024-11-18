@@ -14,7 +14,7 @@ async function fetchCalendarEvents(teamId: number, queryParams: CalendarEventQue
   try {
     const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/calendar_event${queryString}`);
-    const calendarEvents = response.data.calendar_events;
+    const calendarEvents = (response.data as { calendar_events: any[] }).calendar_events;
     const totalCount = calendarEvents?.length ?? 0;
     console.log(calendarEvents);
     console.log(totalCount);
