@@ -2,8 +2,8 @@ import api from '../api';
 
 async function fetchAllCostRates(teamId: number): Promise<void> {
   try {
-    const response = await api.get(`/api/${teamId}/project`);
-    const costRates = response.data.salaries;
+    const response = await api.get(`/api/${teamId}/cost_rate`);
+    const costRates = (response.data as { salaries: any[] }).salaries;
     const totalCount = costRates ? costRates.length : 0;
     console.log(costRates);
     console.log(totalCount);
