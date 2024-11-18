@@ -3,15 +3,15 @@ import api from '../api';
 interface TaskUpdateData {
     task_id: number;
     phase_id?: number;
-    work_category_id?: number;
+    standard_work_category_id?: number;
     activity_phase_id?: number;
     task_list_id?: number;
     task_name?: string;
     estimated_hours?: number;
-    scheduled_start?: string;
-    scheduled_end?: string;
+    schedule_start?: string;
+    schedule_end?: string;
     completed_at?: string;
-    status?: "not_started" | "in_progress" | "needs_review" | "approved" | "issue"
+    status?: "not_started" | "in_progress" | "needs_review" | "approved" | "issue";
     assignee_ids?: number[];
     unassignee_ids?: number[];
     position?: number;
@@ -32,8 +32,8 @@ const taskData: TaskUpdateData = {
     task_id: 46890,
     task_name: 'Updated Task',
     estimated_hours: 5,
-    scheduled_start: '2023-05-16',
-    scheduled_end: '2023-05-17',
+    schedule_start: '2023-05-16',
+    schedule_end: '2023-05-17',
     status: 'in_progress',
     position: 1,
     note: 'This is a updated task'

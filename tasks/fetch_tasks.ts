@@ -10,8 +10,9 @@ async function fetchTasks(teamId: number, queryParams: TaskQueryParams): Promise
   try {
     const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/task${queryStinrg}`);
-    const tasks = response.data.tasks;
-    const totalCount = response.data.task_count;
+    const data = response.data as { tasks: any[]; task_count: number };
+    const tasks = data.tasks;
+    const totalCount = data.task_count;
     console.log(tasks);
     console.log(totalCount);
   } catch (error) {
