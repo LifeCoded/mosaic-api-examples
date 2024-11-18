@@ -10,7 +10,7 @@ async function fetchMemberProjectRates(teamId: number, queryParams: MemberProjec
   try {
     const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/member_project_rate${queryStinrg}`);
-    const memberProjectRates = response.data.member_project_rates;
+    const memberProjectRates = (response.data as { member_project_rates: any[] }).member_project_rates;
     const totalCount = memberProjectRates?.length ?? 0;
     console.log(memberProjectRates);
     console.log(totalCount);
