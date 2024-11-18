@@ -6,7 +6,6 @@ interface InvoiceUpdateData {
     billing_category_id?: number;
     invoice_number?: string;
     invoice_type?: "Fixed Fee" | "Percentage";
-    is_estimate?: boolean;
     invoice_date?: string;
     period_start?: string;
     period_end?: string;

@@ -6,7 +6,6 @@ interface InvoiceData {
     billing_category_id?: number;
     invoice_number?: string;
     invoice_type: "Fixed Fee" | "Percentage";
-    is_estimate?: boolean;
     invoice_date?: string;
     period_start?: string;
     period_end?: string;
@@ -28,7 +27,6 @@ async function createInvoice(teamId: number, postData: InvoiceData): Promise<voi
 const invoiceData: InvoiceData = {
     project_id: 34567,
     phase_id: 345678,
-    is_estimate: false,
     invoice_type: "Fixed Fee",
     period_start: "2023-05-01",
     period_end: "2023-05-10",
