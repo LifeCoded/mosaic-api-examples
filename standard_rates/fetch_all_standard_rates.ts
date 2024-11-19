@@ -3,7 +3,7 @@ import api from '../api';
 async function fetchAllStandardRates(teamId: number): Promise<void> {
   try {
     const response = await api.get(`/api/${teamId}/rate`);
-    const standardRates = response.data.rates;
+    const standardRates = (response.data as { rates: any }).rates;
     console.log(standardRates)
   } catch (error) {
     console.error(error);
