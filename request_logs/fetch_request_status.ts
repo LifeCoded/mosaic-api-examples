@@ -11,7 +11,7 @@ async function fetchRequestStatus(teamId: number, dataType: DataType, apiRequest
   try {
     const queryStinrg = qs.stringify({ data_type: dataType, api_request_id: apiRequestId }, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/request_logs${queryStinrg}`);
-    const request_logs_by_api_request_id = response.data;
+    const request_logs_by_api_request_id: { [key: string]: any } = response.data as { [key: string]: any };
     const ids = Object.keys(request_logs_by_api_request_id);
     const logs = Object.values(request_logs_by_api_request_id);
   } catch (error) {
