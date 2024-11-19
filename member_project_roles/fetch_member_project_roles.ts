@@ -13,7 +13,8 @@ async function fetchMemberProjectRoles(teamId: number, queryParams: MemberProjec
   try {
     const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/member_project_role${queryStinrg}`);
-    const memberProjectRoles = response.data.member_project_roles;
+    const data = response.data as { member_project_roles: any[] };
+    const memberProjectRoles = data.member_project_roles;
     const totalCount = memberProjectRoles?.length ?? 0;
     console.log(memberProjectRoles);
     console.log(totalCount);
