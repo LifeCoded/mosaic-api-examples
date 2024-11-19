@@ -11,7 +11,7 @@ async function fetchPTOs(teamId: number, queryParams: PTOQueryParams): Promise<v
   try {
     const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/pto${queryStinrg}`);
-    const PTOs = response.data.pto_policies;
+    const PTOs = (response.data as { pto_policies: any[] }).pto_policies;
     const totalCount = PTOs?.length ?? 0;
     console.log(PTOs);
     console.log(totalCount);
