@@ -6,6 +6,7 @@ interface OfficeData {
     address_3?: string;
     city?: string;
     country?: string;
+    name?: string;
     state?: string;
     zip?: string;
 }
@@ -25,6 +26,7 @@ const officeData: OfficeData = {
     address_2: "Suite 111",
     city: "Vancouver",
     country: "Canada",
+    name: "Vancouver Office",
     state: "BC",
     zip: "D9A 9A9"
 };
