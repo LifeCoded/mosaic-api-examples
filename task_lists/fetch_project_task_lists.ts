@@ -1,4 +1,4 @@
-import * as qs from 'qs';
+import qs from 'qs';
 import api from '../api';
 
 interface ProjectTaskListQueryParams {
@@ -9,8 +9,9 @@ async function fetchProjectTaskLists(teamId: number, queryParams: ProjectTaskLis
   try {
     const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/task_list${queryStinrg}`);
-    const taskLists = response.data.task_lists;
-    const taskListOrder = response.data.task_list_order;
+    const data = response.data as { task_lists: any[]; task_list_order: any[] };
+    const taskLists = data.task_lists;
+    const taskListOrder = data.task_list_order;
     const totalCount = taskLists?.length ?? 0;
     console.log(taskLists);
     console.log(taskListOrder);
