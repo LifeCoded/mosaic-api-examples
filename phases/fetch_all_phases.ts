@@ -15,7 +15,7 @@ async function fetchAllPhases(teamId: number, queryParams: PhaseQueryParams): Pr
   try {
     const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/phase/index${queryStinrg}`);
-    const phases = response.data.phase;
+    const phases = (response.data as { phase: any[] }).phase;
     const totalCount = phases && phases.length ? phases.length : 0;
     console.log(phases);
     console.log(totalCount);
@@ -35,3 +35,9 @@ fetchAllPhases(12345, { search_text: 'test' });
 
 // Example usage for fetching the archived phases between 2020-01-01 and 2020-12-31
 fetchAllPhases(12345, { archived_after_date: '01/01/2020', archived_before_date: '12/31/2020' });
+
+// Example usage for fetching phases that are budgeted
+fetchAllPhases(12345, { is_budget: true });
+
+// Example usage for fetching phases in limit and offset
+fetchAllPhases(12345, { limit: 10, offset: 2 });

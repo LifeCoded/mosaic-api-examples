@@ -9,7 +9,7 @@ async function fetchAllPhasesUnderProject(teamId: number, queryParams: PhaseQuer
   try {
     const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/phase${queryStinrg}`);
-    const phases = response.data.phase;
+    const phases = (response.data as { phase: any[] }).phase;
     const totalCount = phases && phases.length ? phases.length : 0;
     console.log(phases);
     console.log(totalCount);
