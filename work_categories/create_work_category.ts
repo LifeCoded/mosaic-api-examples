@@ -9,7 +9,7 @@ interface WorkCategoryData {
 
 async function createWorkCategory(teamId: number, postData: WorkCategoryData): Promise<void> {
     try {
-        const response = await api.post(`/api/${teamId}/work_category`, postData);
+        const response = await api.post(`/api/${teamId}/standard_work_category`, postData);
         console.log(response.status);
     } catch (error) {
         console.error(error);
