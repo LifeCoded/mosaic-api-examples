@@ -3,7 +3,7 @@ import api from '../api';
 interface WorkPlanUpdateData {
     project_id?: number;
     phase_id?: number;
-    work_category_id?: number;
+    standard_work_category_id?: number;
     member_id?: number;
     start_date?: string;
     end_date?: string;
