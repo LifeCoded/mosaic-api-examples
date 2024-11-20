@@ -8,7 +8,7 @@ const destroyOption: DeleteOption = {
   force_destroy: true,
 };
 
-async function deletActivityPhase(
+async function deleteActivityPhase(
   teamId: number,
   activityPhaseId: number,
   deleteOption: DeleteOption = {}
@@ -26,7 +26,7 @@ async function deletActivityPhase(
 }
 
 // Example usage for deleting an activity phase by its ID
-deletActivityPhase(12345, 67890);
+deleteActivityPhase(12345, 67890);
 
 // Example usage for force destroying an activity phase and all time entries associated with it
-deletActivityPhase(12345, 67890, destroyOption);
+deleteActivityPhase(12345, 67890, destroyOption);
