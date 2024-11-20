@@ -8,7 +8,7 @@ interface TaskQueryParams {
 
 async function fetchTasks(teamId: number, queryParams: TaskQueryParams): Promise<void> {
   try {
-    const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/task${queryStinrg}`);
     const data = response.data as { tasks: any[]; task_count: number };
     const tasks = data.tasks;
