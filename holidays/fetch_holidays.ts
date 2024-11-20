@@ -8,7 +8,7 @@ interface HolidayQueryParams {
 
 async function fetchHolidays(teamId: number, queryParams: HolidayQueryParams): Promise<void> {
   try {
-    const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/holidays${queryStinrg}`);
     const holidays = (response.data as { holidays: any[] }).holidays;
     const totalCount = holidays?.length ?? 0;
