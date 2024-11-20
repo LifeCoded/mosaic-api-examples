@@ -8,7 +8,6 @@ interface BillRateData {
   start_date?: string;
   end_date?: string;
   override?: boolean;
-  api_request_metadata?: object;
 }
 
 async function createBillRate(

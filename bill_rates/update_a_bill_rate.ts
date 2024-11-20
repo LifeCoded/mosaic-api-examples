@@ -8,7 +8,6 @@ interface BillRateUpdateData {
   start_date?: string;
   end_date?: string;
   override?: boolean;
-  api_request_metadata?: object;
 }
 
 async function updateBillRate(
@@ -32,7 +31,6 @@ const billRateData: BillRateUpdateData = {
   member_id: 23456,
   rate_description: "Updated Bill Rate",
   rate_amount: 40,
-  api_request_metadata: {},
 };
 
 updateBillRate(12345, 67890, billRateData);
