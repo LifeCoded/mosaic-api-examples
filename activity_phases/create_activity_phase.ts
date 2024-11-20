@@ -13,26 +13,10 @@ interface ActivityPhaseData {
   start_date?: string; // Format: YYYY-MM-DD
   end_date?: string; // Format: YYYY-MM-DD
   is_archived?: boolean;
-  budget_activity_phase_by?:
-    | "total hours"
-    | "member estimates"
-    | "spent and planned";
-  budget_fixed_fee_with?:
-    | "activity_phase_estimate"
-    | "member_estimates"
-    | "spent_and_planned"
-    | "phase_estimate_percentage";
-  budget_hourly_with?:
-    | "activity_phase_estimate"
-    | "member_estimates"
-    | "spent_and_planned"
-    | "phase_estimate_percentage";
-  budget_internal_with?:
-    | "activity_phase_estimate"
-    | "member_estimates"
-    | "spent_and_planned"
-    | "phase_estimate_percentage";
-  api_request_metadata?: object;
+  budget_activity_phase_by?: "total hours" | "member estimates" | "spent and planned";
+  budget_fixed_fee_with?: "activity_phase_estimate" | "member_estimates" | "spent_and_planned" | "phase_estimate_percentage";
+  budget_hourly_with?: "activity_phase_estimate" | "member_estimates" | "spent_and_planned" | "phase_estimate_percentage";
+  budget_internal_with?: "activity_phase_estimate" | "member_estimates" | "spent_and_planned" | "phase_estimate_percentage";
 }
 
 async function createActivityPhase(
@@ -63,8 +47,7 @@ const activityPhaseData: ActivityPhaseData = {
   budget_activity_phase_by: "total hours",
   budget_fixed_fee_with: "activity_phase_estimate",
   budget_hourly_with: "activity_phase_estimate",
-  budget_internal_with: "activity_phase_estimate",
-  api_request_metadata: {},
+  budget_internal_with: "activity_phase_estimate"
 };
 
 createActivityPhase(12345, activityPhaseData);
@@ -85,33 +68,7 @@ const activityPhaseData2: ActivityPhaseData = {
   budget_activity_phase_by: "total hours",
   budget_fixed_fee_with: "activity_phase_estimate",
   budget_hourly_with: "activity_phase_estimate",
-  budget_internal_with: "activity_phase_estimate",
-  api_request_metadata: {},
+  budget_internal_with: "activity_phase_estimate"
 };
 
 createActivityPhase(12345, activityPhaseData2);
-
-// Example usage with metadata
-const activityPhaseData3: ActivityPhaseData = {
-  phase_id: 456789,
-  standard_work_category_id: 345678,
-  fee_type: "Fixed Fee",
-  billable: true,
-  is_custom: true,
-  total: 100000,
-  estimated_cost: 75000,
-  estimated_hours: 2000,
-  start_date: "2023-01-01",
-  end_date: "2023-01-31",
-  is_archived: false,
-  budget_activity_phase_by: "total hours",
-  budget_fixed_fee_with: "activity_phase_estimate",
-  budget_hourly_with: "activity_phase_estimate",
-  budget_internal_with: "activity_phase_estimate",
-  api_request_metadata: {
-    custom_field_1: "value1",
-    custom_field_2: "value2",
-  },
-};
-
-createActivityPhase(12345, activityPhaseData3);

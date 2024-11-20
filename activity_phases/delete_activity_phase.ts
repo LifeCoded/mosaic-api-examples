@@ -2,12 +2,10 @@ import api from "../api";
 
 interface DeleteOption {
   force_destroy?: boolean;
-  api_request_metadata?: object;
 }
 
 const destroyOption: DeleteOption = {
   force_destroy: true,
-  api_request_metadata: {},
 };
 
 async function deletActivityPhase(
@@ -16,9 +14,11 @@ async function deletActivityPhase(
   deleteOption: DeleteOption = {}
 ): Promise<void> {
   try {
-    const response = await api.delete(
-      `/api/${teamId}/activity_phase/${activityPhaseId}`
-    );
+    const response = await api.request({
+      method: "DELETE",
+      url: `/api/${teamId}/activity_phase/${activityPhaseId}`,
+      data: deleteOption,
+    });
     console.log(response.status);
   } catch (error) {
     console.error(error);
