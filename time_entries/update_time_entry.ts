@@ -17,7 +17,7 @@ interface TimeEntryUpdateData {
   time_entry_ids?: number[];
 }
 
-async function updateMemberRole(teamId: number, memberRoleId: number, updateData: TimeEntryUpdateData): Promise<void> {
+async function updateTimeEntry(teamId: number, memberRoleId: number, updateData: TimeEntryUpdateData): Promise<void> {
   try {
     const response = await api.put(`/api/${teamId}/member_role/`, updateData);
     console.log(response.status);
@@ -36,4 +36,4 @@ const timeEntryUpdateData: TimeEntryUpdateData = {
   time_entry_id: 1234567
 };
 
-updateMemberRole(12345, 1234567, timeEntryUpdateData);
+updateTimeEntry(12345, 1234567, timeEntryUpdateData);
