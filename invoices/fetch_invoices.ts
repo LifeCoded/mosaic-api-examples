@@ -1,4 +1,4 @@
-import * as qs from 'qs';
+import qs from 'qs';
 import api from '../api';
 
 interface InvoiceQueryParams {
@@ -8,8 +8,8 @@ interface InvoiceQueryParams {
 
 async function fetchInvoices(teamId: number, queryParams: InvoiceQueryParams): Promise<void> {
   try {
-    const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
-    const response = await api.get(`/api/${teamId}/invoice${queryStinrg}`);
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+    const response = await api.get(`/api/${teamId}/invoice${queryString}`);
     const invoices = (response.data as { pto_policies: any[] }).pto_policies;
     const totalCount = invoices?.length ?? 0;
     console.log(invoices);
