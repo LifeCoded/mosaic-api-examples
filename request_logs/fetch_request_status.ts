@@ -1,4 +1,4 @@
-import * as qs from 'qs';
+import qs from 'qs';
 import api from '../api';
 
 const dataTypes = [ 
@@ -9,8 +9,8 @@ type DataType = typeof dataTypes[number];
 
 async function fetchRequestStatus(teamId: number, dataType: DataType, apiRequestId: string): Promise<void> {
   try {
-    const queryStinrg = qs.stringify({ data_type: dataType, api_request_id: apiRequestId }, { addQueryPrefix: true });
-    const response = await api.get(`/api/${teamId}/request_logs${queryStinrg}`);
+    const queryString = qs.stringify({ data_type: dataType, api_request_id: apiRequestId }, { addQueryPrefix: true });
+    const response = await api.get(`/api/${teamId}/request_logs${queryString}`);
     const request_logs_by_api_request_id: { [key: string]: any } = response.data as { [key: string]: any };
     const ids = Object.keys(request_logs_by_api_request_id);
     const logs = Object.values(request_logs_by_api_request_id);
