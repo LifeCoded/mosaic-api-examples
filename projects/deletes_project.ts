@@ -15,7 +15,11 @@ const archiveOption = {
 
 async function deleteProject(teamId: number, projectId: number, deleteOption: DeleteOption = {}): Promise<void> {
   try {
-    const response = await api.delete(`/api/${teamId}/project${projectId}`, { params: deleteOption });
+    const response = await api.request({
+      method: 'DELETE',
+      url: `/api/${teamId}/project/${projectId}`,
+      data: deleteOption,
+    });
     console.log(response.status);
   } catch (error) {
     console.error(error);
