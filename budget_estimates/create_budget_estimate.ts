@@ -9,7 +9,6 @@ interface BudgetEstimateData {
     estimated_hours?: number;
     estimated_amount?: number;
     estimated_percentage?: number;
-    api_request_metadata?: {};
 }
 
 async function createBudgetEstimate(teamId: number, postData: BudgetEstimateData): Promise<void> {
@@ -27,8 +26,7 @@ const budgetEstimateData1: BudgetEstimateData = {
     project_id: 123456,
     standard_work_category_id: 345678,
     member_id: 23456,
-    estimated_hours: 200,
-    api_request_metadata: {}
+    estimated_hours: 200
 };
 createBudgetEstimate(12345, budgetEstimateData1);
 
@@ -38,8 +36,7 @@ const budgetEstimateData2: BudgetEstimateData = {
     project_id: 123456,
     standard_work_category_id: 345678,
     member_id: 34567,
-    estimated_amount: 2500,
-    api_request_metadata: {}
+    estimated_amount: 2500
 };
 createBudgetEstimate(12345, budgetEstimateData2);
 
@@ -49,7 +46,6 @@ const budgetEstimateData3: BudgetEstimateData = {
     project_id: 123456,
     standard_work_category_id: 345678,
     member_id: 45678,
-    estimated_percentage: 75,
-    api_request_metadata: {}
+    estimated_percentage: 75
 };
 createBudgetEstimate(12345, budgetEstimateData3);

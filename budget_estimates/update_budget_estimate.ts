@@ -4,7 +4,6 @@ interface BudgetEstimateUpdateData {
     estimated_hours?: number;
     estimated_amount?: number;
     estimated_percentage?: number;
-    api_request_metadata?: {};
 }
 
 async function updateBudgetEstimate(teamId: number, budgetEstimateId: number, updateData: BudgetEstimateUpdateData): Promise<void> {
@@ -18,8 +17,7 @@ async function updateBudgetEstimate(teamId: number, budgetEstimateId: number, up
 
 // Example usage of updating a budget estimate using estimated hours
 const budgetEstimateData: BudgetEstimateUpdateData = {
-    estimated_hours: 250,
-    api_request_metadata: {}
+    estimated_hours: 250
 };
 
 updateBudgetEstimate(12345, 67890, budgetEstimateData);
