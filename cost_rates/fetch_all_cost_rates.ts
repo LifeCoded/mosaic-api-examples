@@ -19,7 +19,7 @@ interface CostRate {
 async function fetchAllCostRates(teamId: number): Promise<void> {
   try {
     const response = await api.get(`/api/${teamId}/cost_rate`);
-    const costRates = (response.data as { salaries: CostRate[] }).salaries;
+    const costRates = (response.data as { cost_rates: CostRate[] }).cost_rates;
     const totalCount = costRates ? costRates.length : 0;
     console.log(costRates);
     console.log(totalCount);
