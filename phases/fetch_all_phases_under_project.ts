@@ -7,8 +7,8 @@ interface PhaseQueryParams {
 
 async function fetchAllPhasesUnderProject(teamId: number, queryParams: PhaseQueryParams): Promise<void> {
   try {
-    const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
-    const response = await api.get(`/api/${teamId}/phase${queryStinrg}`);
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+    const response = await api.get(`/api/${teamId}/phase${queryString}`);
     const phases = (response.data as { phase: any[] }).phase;
     const totalCount = phases && phases.length ? phases.length : 0;
     console.log(phases);
