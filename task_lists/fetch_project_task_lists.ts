@@ -7,8 +7,8 @@ interface ProjectTaskListQueryParams {
 
 async function fetchProjectTaskLists(teamId: number, queryParams: ProjectTaskListQueryParams): Promise<void> {
   try {
-    const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
-    const response = await api.get(`/api/${teamId}/task_list${queryStinrg}`);
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+    const response = await api.get(`/api/${teamId}/task_list${queryString}`);
     const data = response.data as { task_lists: any[]; task_list_order: any[] };
     const taskLists = data.task_lists;
     const taskListOrder = data.task_list_order;
