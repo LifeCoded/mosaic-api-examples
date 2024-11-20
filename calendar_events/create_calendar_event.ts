@@ -7,7 +7,7 @@ interface CalendarEventData {
     project_id?: number;
     phase_id?: number;
     member_ids?: number[];
-    details?: {}
+    details?: object;
 }
 
 async function createCalendarEvent(teamId: number, postData: CalendarEventData): Promise<void> {
