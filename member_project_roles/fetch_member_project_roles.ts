@@ -1,4 +1,4 @@
-import * as qs from 'qs';
+import qs from 'qs';
 import api from '../api';
 
 interface MemberProjectRoleQueryParams {
@@ -11,8 +11,8 @@ interface MemberProjectRoleQueryParams {
 
 async function fetchMemberProjectRoles(teamId: number, queryParams: MemberProjectRoleQueryParams): Promise<void> {
   try {
-    const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
-    const response = await api.get(`/api/${teamId}/member_project_role${queryStinrg}`);
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+    const response = await api.get(`/api/${teamId}/member_project_role${queryString}`);
     const data = response.data as { member_project_roles: any[] };
     const memberProjectRoles = data.member_project_roles;
     const totalCount = memberProjectRoles?.length ?? 0;
