@@ -8,7 +8,7 @@ interface BudgetEstimateQueryParams {
 interface BudgetEstimateResponse {
   estimations: Array<any>; // Replace `any` with the type of objects in the `estimations` array if known.
 }
-async function fetchAllActivityPhases(teamId: number, queryParams: BudgetEstimateQueryParams): Promise<void> {
+async function fetchAllBudgetEstimates(teamId: number, queryParams: BudgetEstimateQueryParams): Promise<void> {
   try {
     const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
     const response = await api.get<BudgetEstimateResponse>(`/api/${teamId}/budget_estimate/index${queryString}`);
@@ -22,4 +22,4 @@ async function fetchAllActivityPhases(teamId: number, queryParams: BudgetEstimat
 }
 
 // Example usage for fetching all budget estimates for a project
-fetchAllActivityPhases(12345, { project_id: 123456 });
+fetchAllBudgetEstimates(12345, { project_id: 123456 });
