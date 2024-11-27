@@ -1,5 +1,6 @@
 import api from '../api';
 
+
 async function deleteCalendarEvent(teamId: number, calendarEventId: number): Promise<void> {
   try {
     const response = await api.delete(`/api/${teamId}/calendar_event/${calendarEventId}`);
