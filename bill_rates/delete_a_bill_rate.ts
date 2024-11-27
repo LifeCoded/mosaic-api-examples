@@ -1,6 +1,9 @@
-import api from '../api';
+import api from "../api";
 
-async function deleteBillRate(teamId: number, billRateId: number): Promise<void> {
+async function deleteBillRate(
+  teamId: number,
+  billRateId: number
+): Promise<void> {
   try {
     const response = await api.delete(`/api/${teamId}/bill_rate/${billRateId}`);
     console.log(response.status);
