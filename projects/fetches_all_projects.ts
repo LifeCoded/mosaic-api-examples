@@ -11,7 +11,7 @@ async function fetchAllProjects(teamId: number, queryParams: ProjectQueryParams)
   try {
     const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/project${queryString}`);
-    const projects = (response.data as { projects: any[], }).projects;
+    const projects = (response.data as { project: any[], }).project;
     const total_count = projects.length || 0;
     console.log(projects);
     console.log(total_count);
