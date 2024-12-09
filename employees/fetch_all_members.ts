@@ -16,7 +16,7 @@ interface Member {
 async function fetchAllMembers(teamId: number): Promise<void> {
   try {
     const response = await api.get(`/api/${teamId}/employee/index`);
-    const members = (response.data as { member: Member[] }).member;
+    const members = (response.data as { employee: Member[] }).employee;
     console.log(members)
   } catch (error) {
     console.error(error);
