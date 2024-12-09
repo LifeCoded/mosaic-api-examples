@@ -3,7 +3,7 @@ import api from '../api';
 interface EntityRateRequest {
   end_date?: string;
   entity_id: number;
-  entity_type: "role" | "standard_work_category";
+  entity_type: "Role" | "Standard Work Category";
   is_cost_rate?: boolean;
   override_unassigned_member_rates?: boolean;
   rate_amount?: number;
@@ -19,7 +19,7 @@ async function createEntityRate(
 ): Promise<void> {
   try {
     const response = await api.post(`/api/${teamId}/entity_rate`, postData);
-    console.log('Entity Rate Created:', response.data);
+    console.log('Entity Rate Created:', response.status);
   } catch (error) {
     console.error('Error creating entity rate:', error);
   }
@@ -28,7 +28,7 @@ async function createEntityRate(
 // Example usage
 createEntityRate(12345, {
   entity_id: 9118,
-  entity_type: 'standard_work_category',
+  entity_type: 'Role',
   rate_group_id: 13282,
   team_id: 12345,
   start_date: '2023-01-01',

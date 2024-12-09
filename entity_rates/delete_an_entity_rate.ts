@@ -6,7 +6,7 @@ async function deleteEntityRate(
 ): Promise<void> {
   try {
     const response = await api.delete(`/api/${teamId}/entity_rate/${entityRateId}`);
-    console.log('Entity Rate Deleted:', response.data);
+    console.log('Entity Rate Deleted:', response.status);
   } catch (error) {
     console.error('Error deleting entity rate:', error);
   }

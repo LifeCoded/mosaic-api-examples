@@ -17,7 +17,7 @@ async function updateEntityRate(
 ): Promise<void> {
   try {
     const response = await api.put(`/api/${teamId}/entity_rate/${entityRateId}`, updateData);
-    console.log('Entity Rate Updated:', response.data);
+    console.log('Entity Rate Updated:', response.status);
   } catch (error) {
     console.error('Error updating entity rate:', error);
   }
