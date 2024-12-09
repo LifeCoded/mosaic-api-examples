@@ -14,7 +14,7 @@ async function updateRateGroup(
 ): Promise<void> {
   try {
     const response = await api.put(`/api/${team_id}/rate_group/${rate_group_id}`, bodyParams);
-    console.log('Rate group updated successfully:', response.data);
+    console.log('Rate group updated successfully:', response.status);
   } catch (error) {
     console.error('Error updating rate group:', error);
   }

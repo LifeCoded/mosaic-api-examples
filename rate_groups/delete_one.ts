@@ -6,7 +6,7 @@ async function deleteRateGroup(
 ): Promise<void> {
   try {
     const response = await api.delete(`/api/${team_id}/rate_group/${rate_group_id}`);
-    console.log('Rate group deleted successfully:', response.data);
+    console.log('Rate group deleted successfully:', response.status);
   } catch (error) {
     console.error('Error deleting rate group:', error);
   }

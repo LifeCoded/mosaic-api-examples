@@ -15,7 +15,7 @@ async function createRateGroup(
 ): Promise<void> {
   try {
     const response = await api.post(`/api/${team_id}/rate_group`, bodyParams);
-    console.log('Rate group created successfully:', response.data);
+    console.log('Rate group created successfully:', response.status);
   } catch (error) {
     console.error('Error creating rate group:', error);
   }
