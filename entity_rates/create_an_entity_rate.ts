@@ -19,7 +19,7 @@ async function createEntityRate(
 ): Promise<void> {
   try {
     const response = await api.post(`/api/${teamId}/entity_rate`, postData);
-    console.log('Entity Rate Created:', response.status);
+    console.log(response.status);
   } catch (error) {
     console.error('Error creating entity rate:', error);
   }
