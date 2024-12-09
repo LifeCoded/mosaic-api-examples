@@ -10,7 +10,7 @@ async function fetchInvoices(teamId: number, queryParams: InvoiceQueryParams): P
   try {
     const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
     const response = await api.get(`/api/${teamId}/invoice${queryString}`);
-    const invoices = (response.data as { pto_policies: any[] }).pto_policies;
+    const invoices = response.data as any[];
     const totalCount = invoices?.length ?? 0;
     console.log(invoices);
     console.log(totalCount);
