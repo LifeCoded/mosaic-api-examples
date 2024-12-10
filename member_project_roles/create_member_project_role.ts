@@ -3,7 +3,7 @@ import api from '../api';
 interface MemberProjectRoleData {
     member_id: number;
     project_id: number;
-    role_id?: number;
+    role_id: number;
     phase_id?: number;
     start_date?: string;
     end_date?: string;
