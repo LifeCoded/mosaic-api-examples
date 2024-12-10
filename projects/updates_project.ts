@@ -11,6 +11,11 @@ interface ProjectUpdateData {
     total?: number;
     billable?: boolean;
     phase_orders?: string[];
+    apply_billing_type_and_rate_group_to_phases?: boolean;
+    apply_rate_multiplier_to_phases?: boolean;
+    billing_type?: 'employee' | 'activity' | 'role';
+    rate_group_id?: number;
+    rate_multiplier?: number;
 }
 
 async function updateProject(teamId: number, projectId: number, updateData: ProjectUpdateData): Promise<void> {
@@ -29,11 +34,16 @@ const projectData: ProjectUpdateData = {
   title: "Updated Example Project",
   description: "Updated example project description",
   client: "Updated Example Client",
-  start_date: "01/01/2021",
-  end_date: "12/31/2021",
+  start_date: "2021-01-01",
+  end_date: "2021-12-31",
   total: 50000,
   billable: true,
   phase_orders: ["12345", "67890"],
+  apply_billing_type_and_rate_group_to_phases: true,
+  apply_rate_multiplier_to_phases: false,
+  billing_type: 'employee',
+  rate_group_id: 789012,
+  rate_multiplier: 1.0
 };
 
 updateProject(12345, 67890, projectData);
