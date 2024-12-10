@@ -9,5 +9,5 @@ async function deleteBudgetEstimate(teamId: number, budgetEstimateId: number): P
   }
 }
 
-// Example usage for deleting an activity phase by its ID
+// Example usage for deleting a budget estimate by its ID
 deleteBudgetEstimate(12345, 67890);

@@ -1,16 +1,24 @@
-import api from '../api';
+import api from "../api";
 
 interface DeleteOption {
-    force_destroy?: boolean;
+  force_destroy?: boolean;
 }
 
 const destroyOption: DeleteOption = {
-    force_destroy: true,
-}
+  force_destroy: true,
+};
 
-async function deletActivityPhase(teamId: number, activityPhaseId: number, deleteOption: DeleteOption = {}): Promise<void> {
+async function deleteActivityPhase(
+  teamId: number,
+  activityPhaseId: number,
+  deleteOption: DeleteOption = {}
+): Promise<void> {
   try {
-    const response = await api.delete(`/api/${teamId}/activity_phase/${activityPhaseId}`, { data: deleteOption });
+    const response = await api.request({
+      method: "DELETE",
+      url: `/api/${teamId}/activity_phase/${activityPhaseId}`,
+      data: deleteOption,
+    });
     console.log(response.status);
   } catch (error) {
     console.error(error);
@@ -18,8 +26,7 @@ async function deletActivityPhase(teamId: number, activityPhaseId: number, delet
 }
 
 // Example usage for deleting an activity phase by its ID
-deletActivityPhase(12345, 67890);
+deleteActivityPhase(12345, 67890);
 
 // Example usage for force destroying an activity phase and all time entries associated with it
-deletActivityPhase(12345, 67890, destroyOption);
-
+deleteActivityPhase(12345, 67890, destroyOption);

@@ -1,11 +1,22 @@
-import * as qs from 'qs';
 import api from '../api';
 
-async function fetchAllMembers(teamId: number, includeArchived: boolean = false): Promise<void> {
+// Define the interface for Member
+interface Member {
+  created_at: string; // ISO-8601 formatted date
+  email: string;
+  employment_type: string; // e.g., "Member"
+  first_name: string;
+  is_archived: boolean;
+  last_name: string;
+  mosaic_id: number;
+  mosaic_team_id: number;
+  updated_at: string; // ISO-8601 formatted date
+}
+
+async function fetchAllMembers(teamId: number): Promise<void> {
   try {
-    const queryString = includeArchived ? qs.stringify({ include_discarded: true }, { addQueryPrefix: true }) : '';
-    const response = await api.get(`/api/${teamId}/member/index${queryString}`);
-    const members = response.data.member;
+    const response = await api.get(`/api/${teamId}/employee/index`);
+    const members = (response.data as { employee: Member[] }).employee;
     console.log(members)
   } catch (error) {
     console.error(error);
@@ -16,4 +27,4 @@ async function fetchAllMembers(teamId: number, includeArchived: boolean = false)
 fetchAllMembers(12345);
 
 // Example usage for fetching all members including the archived ones
-fetchAllMembers(12345, true);
+fetchAllMembers(12345);

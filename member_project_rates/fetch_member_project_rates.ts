@@ -1,4 +1,4 @@
-import * as qs from 'qs';
+import qs from 'qs';
 import api from '../api';
 
 interface MemberProjectRateQueryParams {
@@ -8,9 +8,9 @@ interface MemberProjectRateQueryParams {
 
 async function fetchMemberProjectRates(teamId: number, queryParams: MemberProjectRateQueryParams): Promise<void> {
   try {
-    const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
-    const response = await api.get(`/api/${teamId}/member_project_rate${queryStinrg}`);
-    const memberProjectRates = response.data.member_project_rates;
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+    const response = await api.get(`/api/${teamId}/member_project_rate${queryString}`);
+    const memberProjectRates = (response.data as { member_project_rates: any[] }).member_project_rates;
     const totalCount = memberProjectRates?.length ?? 0;
     console.log(memberProjectRates);
     console.log(totalCount);

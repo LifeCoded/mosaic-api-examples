@@ -6,7 +6,8 @@ interface CheckInData {
     phase_id: number;
     title: string;
     date: string;
-    work_category_id?: number;
+    description: string;
+    standard_work_category_id?: number;
     estimated_hours?: number;
 }
 
@@ -26,7 +27,8 @@ const checkInData: CheckInData = {
     phase_id: 345678,
     title: "Example Check-In",
     date: "2023-05-16",
-    work_category_id: 13579,
+    description: "This is an example check-in description.",
+    standard_work_category_id: 13579,
     estimated_hours: 3
 };
 

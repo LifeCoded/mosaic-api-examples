@@ -2,7 +2,7 @@ import api from '../api';
 
 interface MemberRoleData {
     member_id: number;
-    position_id: number;
+    role_id: number;
     start_date?: string;
     end_date?: string;
     override_member_positions?: boolean;
@@ -20,8 +20,8 @@ async function createMemberRole(teamId: number, postData: MemberRoleData): Promi
 // Example usage of creating a Member Role
 const memberRoleData: MemberRoleData = {
     member_id: 12345,
-    position_id: 123456,
-    start_date: "04/17/2023",
-    end_date: "06/30/2024"
+    role_id: 123456,
+    start_date: "2023-04-17",
+    end_date: "2024-06-30"
 };
 createMemberRole(11111, memberRoleData);
