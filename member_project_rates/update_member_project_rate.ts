@@ -25,7 +25,7 @@ const memberProjectRateData1: MemberProjectRateUpdateData = {
 
 updateMemberProjectRate(12345, 67890, memberProjectRateData1);
 
-// Example usage of updating a member project rate with an existing rate Id
+// Example usage of updating a member project rate with a new rate amount
 const memberProjectRateData2: MemberProjectRateUpdateData = {
   rate_amount: 35,
   start_date: "2023-01-01",
