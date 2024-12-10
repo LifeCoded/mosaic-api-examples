@@ -9,7 +9,7 @@ interface MemberUpdateData {
 
 async function updateMember(teamId: number, updateData: MemberUpdateData): Promise<void> {
   try {
-    const response = await api.put(`/api/${teamId}/member`, updateData);
+    const response = await api.put(`/api/${teamId}/employee`, updateData);
     console.log(response.status);
   } catch (error) {
     console.error(error);
@@ -18,7 +18,7 @@ async function updateMember(teamId: number, updateData: MemberUpdateData): Promi
 
 // Example usage of updating an employee
 const memberData: MemberUpdateData = {
-  member_id: 123,
+    member_id: 123,
     email: "updateEmployee@mosaicapp.com",
     first_name: "Update",
     last_name: "Employee",
