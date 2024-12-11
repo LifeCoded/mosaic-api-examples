@@ -22,11 +22,9 @@ To run the sample code, you need to set the following environment variables:
 - MOSAIC_API_KEY: Your Mosaic API key
 - MOSAIC_API_BASE_URL: The base URL for the Mosaic API (e.g. https://api.mosaic.com/v1)
 
-You can then run the sample code by running:
+You can then run the sample code and start the server by running:
 
-npm start
-
-This will run the sample code, which makes requests to the Mosaic API and logs the response to the console.
+```npx ts-node server.ts```
 
 ## 💡 Using the Sample Code:
 
@@ -45,7 +43,3 @@ If you find any issues with the sample code or want to add additional examples, 
 ### 📄 License:
 
 This code is licensed under the MIT License. See the LICENSE file for details.
-
-### 🚀 Strat server
-
-To start the server run ```npx ts-node server.ts```
