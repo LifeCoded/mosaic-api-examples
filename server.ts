@@ -1,4 +1,3 @@
-// server.ts
 import express from 'express';
 import webhookRouter from './webhook/webhook_call';
 

@@ -8,7 +8,7 @@ interface PortfolioData {
   is_personal?: boolean;
 }
 
-export async function createPortfolio(teamId: number, postData: PortfolioData): Promise<void> {
+async function createPortfolio(teamId: number, postData: PortfolioData): Promise<void> {
   try {
     const response = await api.post(`/api/${teamId}/portfolio`, postData);
     console.log(response.status);

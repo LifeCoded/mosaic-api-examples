@@ -48,4 +48,4 @@ This code is licensed under the MIT License. See the LICENSE file for details.
 
 ### 🚀 Strat server
 
-To start the server run `npx ts-node server.ts`
+To start the server run ```npx ts-node server.ts```
