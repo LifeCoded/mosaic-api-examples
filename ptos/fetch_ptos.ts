@@ -1,4 +1,4 @@
-import * as qs from 'qs';
+import qs from 'qs';
 import api from '../api';
 
 interface PTOQueryParams {
@@ -9,9 +9,9 @@ interface PTOQueryParams {
 
 async function fetchPTOs(teamId: number, queryParams: PTOQueryParams): Promise<void> {
   try {
-    const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
-    const response = await api.get(`/api/${teamId}/pto${queryStinrg}`);
-    const PTOs = response.data.pto_policies;
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+    const response = await api.get(`/api/${teamId}/pto${queryString}`);
+    const PTOs = (response.data as { pto_policies: any[] }).pto_policies;
     const totalCount = PTOs?.length ?? 0;
     console.log(PTOs);
     console.log(totalCount);
