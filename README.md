@@ -45,3 +45,7 @@ If you find any issues with the sample code or want to add additional examples, 
 ### 📄 License:
 
 This code is licensed under the MIT License. See the LICENSE file for details.
+
+### 🚀 Strat server
+
+To start the server run `npx ts-node server.ts`
