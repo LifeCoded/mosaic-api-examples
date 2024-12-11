@@ -9,7 +9,7 @@ interface WorkCategoryUpdateData {
 
 async function updateWorkCategory(teamId: number, workCategoryId: number, updateData: WorkCategoryUpdateData): Promise<void> {
   try {
-    const response = await api.put(`/api/${teamId}/time_entry/${workCategoryId}`, updateData);
+    const response = await api.put(`/api/${teamId}/standard_work_category/${workCategoryId}`, updateData);
     console.log(response.status);
   } catch (error) {
     console.error(error);
@@ -17,11 +17,11 @@ async function updateWorkCategory(teamId: number, workCategoryId: number, update
 }
 
 // Example usage of updating a work category
-const timeEntryData: WorkCategoryUpdateData = {
+const workCategoryUpdateData: WorkCategoryUpdateData = {
     require_title: true,
     title: "Updated Work Category",
     archived: false,
     billable: true
 };
 
-updateWorkCategory(12345, 123456, timeEntryData);
+updateWorkCategory(12345, 123456, workCategoryUpdateData);

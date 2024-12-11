@@ -17,7 +17,11 @@ interface DependencyData {
 
 async function deleteDependency(teamId: number, postData: DependencyData): Promise<void> {
     try {
-        const response = await api.delete(`/api/${teamId}/dependencies`, postData);
+        const response = await api.request({
+            url: `/api/${teamId}/dependencies`,
+            method: 'DELETE',
+            data: postData
+        });
         console.log(response.status);
     } catch (error) {
         console.error(error);

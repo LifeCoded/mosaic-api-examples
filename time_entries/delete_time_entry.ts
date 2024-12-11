@@ -6,7 +6,12 @@ interface TimeEntryIds {
 
 async function deleteTimeEntries(teamId: number): Promise<void> {
   try {
-    const response = await api.delete(`/api/${teamId}/time_entry`, { data: timeEntryIds });
+    // const response = await api.delete(`/api/${teamId}/time_entry`, { data: timeEntryIds });
+    const response = await api.request({
+      method: 'DELETE',
+      url: `/api/${teamId}/time_entry`,
+      data: timeEntryIds
+    });
     console.log(response.status);
   } catch (error) {
     console.error(error);

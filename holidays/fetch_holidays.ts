@@ -1,4 +1,4 @@
-import * as qs from 'qs';
+import qs from 'qs';
 import api from '../api';
 
 interface HolidayQueryParams {
@@ -8,9 +8,9 @@ interface HolidayQueryParams {
 
 async function fetchHolidays(teamId: number, queryParams: HolidayQueryParams): Promise<void> {
   try {
-    const queryStinrg = qs.stringify(queryParams, { addQueryPrefix: true });
-    const response = await api.get(`/api/${teamId}/holidays${queryStinrg}`);
-    const holidays = response.data.holidays;
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+    const response = await api.get(`/api/${teamId}/holidays${queryString}`);
+    const holidays = (response.data as { holidays: any[] }).holidays;
     const totalCount = holidays?.length ?? 0;
     console.log(holidays);
     console.log(totalCount);
@@ -20,4 +20,4 @@ async function fetchHolidays(teamId: number, queryParams: HolidayQueryParams): P
 }
 
 // Example usage for fetching all holidays for 2023
-fetchHolidays(12345, { start_date: "01/01/2023", end_date: "12/31/2023" });
+fetchHolidays(12345, { start_date: "2023-01-01", end_date: "2023-12-31" });

@@ -1,9 +1,10 @@
 import api from '../api';
 
 interface PTOUpdateData {
-    name?: string;
+    name: string;
     hours?: number;
     is_accrued?: boolean;
+    is_custom?: boolean;
 }
 
 async function updatePTO(teamId: number, ptoId: number, updateData: PTOUpdateData): Promise<void> {
@@ -19,7 +20,8 @@ async function updatePTO(teamId: number, ptoId: number, updateData: PTOUpdateDat
 const ptoData: PTOUpdateData = {
     name: "New PTO Policy Name",
     hours: 30,
-    is_accrued: true
+    is_accrued: true,
+    is_custom: false,
 };
 
 updatePTO(12345, 67890, ptoData);

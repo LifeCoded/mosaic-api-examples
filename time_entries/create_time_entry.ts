@@ -4,12 +4,14 @@ interface TimeEntryData {
     member_id: number;
     project_id: number;
     phase_id: number;
-    work_category_id: number;
+    standard_work_category_id: number;
     title?: string;
     date: string;
     hours: number;
     rate?: number;
     billable?: boolean;
+    cost_rate?: number;
+    description_id?: number;
 }
 
 async function createTimeEntry(teamId: number, postData: TimeEntryData): Promise<void> {
@@ -26,9 +28,9 @@ const timeEntryData: TimeEntryData = {
     member_id: 12345,
     project_id: 123456,
     phase_id: 12345678,
-    work_category_id: 234567,
+    standard_work_category_id: 234567,
     title: "Example Time Entry",
-    date: "04/16/2023",
+    date: "2023-04-16",
     hours: 50,
     rate: 10,
     billable: true
