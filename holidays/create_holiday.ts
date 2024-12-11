@@ -3,7 +3,7 @@ import api from '../api';
 interface HolidayData {
     start_date: string;
     end_date: string;
-    title?: string;
+    name?: string;
     daily_hours?: number;
     all_day?: boolean;
 }
@@ -19,9 +19,9 @@ async function createHoliday(teamId: number, postData: HolidayData): Promise<voi
 
 // Example usage of creating a holiday on 11/11/2023
 const holidayData: HolidayData = {
-    start_date: "11/11/2023",
-    end_date: "11/11/2023",
-    title: "Eleven Eleven Day",
+    start_date: "2023-11-11",
+    end_date: "2023-11-11",
+    name: "Eleven Eleven Day",
     all_day: true
 };
 

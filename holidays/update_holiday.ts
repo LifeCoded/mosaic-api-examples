@@ -3,7 +3,7 @@ import api from '../api';
 interface HolidayUpdateData {
     start_date?: string;
     end_date?: string;
-    title?: string;
+    name?: string;
     daily_hours?: number;
     all_day?: boolean;
 }
@@ -19,9 +19,9 @@ async function updateHoliday(teamId: number, holidayId: number, updateData: Holi
 
 // Example usage of updating a holiday
 const holidayData: HolidayUpdateData = {
-    start_date: "11/12/2023",
-    end_date: "11/12/2023",
-    title: "Updated Holiday Title",
+    start_date: "2023-11-11",
+    end_date: "2023-11-11",
+    name: "Updated Holiday Title",
     daily_hours: 8,
     all_day: false
 };
