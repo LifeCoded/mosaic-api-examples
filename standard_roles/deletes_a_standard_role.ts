@@ -2,7 +2,7 @@ import api from '../api';
 
 async function deleteStandardRole(teamId: number, roleId: number): Promise<void> {
   try {
-    const response = await api.delete(`/api/${teamId}/rate/${roleId}`);
+    const response = await api.delete(`/api/${teamId}/role/${roleId}`);
     console.log(response.status);
   } catch (error) {
     console.error(error);
