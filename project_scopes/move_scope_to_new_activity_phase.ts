@@ -8,7 +8,7 @@ interface MoveScopesParams {
 }
 
 async function moveScopesToNewActivityPhase(team_id: number, queryParams: MoveScopesParams): Promise<void> {
-  const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+  const queryString = qs.stringify(queryParams, { addQueryPrefix: true, arrayFormat: "brackets" });
 
   try {
     const response = await api.put(`/api/${team_id}/scope_update_activity_phase`, queryString);

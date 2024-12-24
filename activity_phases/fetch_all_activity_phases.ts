@@ -19,7 +19,7 @@ async function fetchAllActivityPhases(
   queryParams: ActivityPhaseQueryParams
 ): Promise<void> {
   try {
-    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true, arrayFormat: "brackets" });
     const response = await api.get(
       `/api/${teamId}/activity_phase${queryString}`
     );

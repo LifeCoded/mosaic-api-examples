@@ -23,7 +23,7 @@ async function fetchAllScopes(
   queryParams: FetchScopesParams
 ): Promise<void> {
   try {
-    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true, arrayFormat: "brackets" });
     const response = await api.get(`/api/${teamId}/scope${queryString}`);
     const scopes: any[] = (response.data as { scopes: any[] }).scopes;
     console.log(scopes);

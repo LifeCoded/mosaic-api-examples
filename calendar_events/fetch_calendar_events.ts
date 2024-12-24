@@ -12,7 +12,7 @@ interface CalendarEventQueryParams {
 
 async function fetchCalendarEvents(teamId: number, queryParams: CalendarEventQueryParams): Promise<void> {
   try {
-    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true, arrayFormat: "brackets" });
     const response = await api.get(`/api/${teamId}/calendar_event${queryString}`);
     const calendarEvents = (response.data as { calendar_events: any[] }).calendar_events;
     const totalCount = calendarEvents?.length ?? 0;

@@ -19,7 +19,7 @@ interface WorkPlanQueryParams {
 
 async function fetchWorkPlans(teamId: number, queryParams: WorkPlanQueryParams): Promise<void> {
   try {
-    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true, arrayFormat: "brackets" });
     const response = await api.get(`/api/${teamId}/work_plan/index${queryString}`);
     const data = response.data as { work_plans: any[]; count: number };
     const workPlans = data.work_plans;

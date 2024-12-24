@@ -29,7 +29,7 @@ interface TimeEntryQueryParams {
 
 async function fetchAllTimeEntries(teamId: number, queryParams: TimeEntryQueryParams): Promise<void> {
   try {
-    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true, arrayFormat: "brackets" });
     const response = await api.get(`/api/${teamId}/time_entry${queryString}`);
     let data = response.data as { time_entry: any[] };
     const timeEntries = data.time_entry;

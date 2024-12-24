@@ -8,7 +8,7 @@ interface CheckInQueryParams {
 
 async function fetchCheckIns(teamId: number, queryParams: CheckInQueryParams): Promise<void> {
   try {
-    const queryString = qs.stringify(queryParams, { addQueryPrefix: true });
+    const queryString = qs.stringify(queryParams, { addQueryPrefix: true, arrayFormat: "brackets" });
     const response = await api.get(`/api/${teamId}/check_in${queryString}`);
     const checkIns = (response.data as { check_ins: any[] }).check_ins;
     const totalCount = checkIns?.length ?? 0;
