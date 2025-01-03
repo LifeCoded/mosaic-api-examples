@@ -1,4 +1,6 @@
-import api from '../api';
+import api from '../api/index';
+import axios from 'axios';
+import { ActionType } from '../webhook/webhook_call';
 
 interface PortfolioData {
   name: string;
@@ -10,8 +12,22 @@ async function createPortfolio(teamId: number, postData: PortfolioData): Promise
   try {
     const response = await api.post(`/api/${teamId}/portfolio`, postData);
     console.log(response.status);
+    
+    /**
+     * Simulates a webhook call after the portfolio creation (for testing purposes).
+     *
+     * @remarks
+     * This function sends a POST request to a local webhook endpoint with the portfolio data.
+     */
+    await axios.post('http://localhost:3000/webhook', {
+      dataType: "portfolio",
+      metadata: {},
+      actionType: ActionType.CREATE,
+      payload: postData
+    });
+
   } catch (error) {
-    console.error(error);
+    console.error('error:', error.response.data);
   }
 }
 
